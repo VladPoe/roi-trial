@@ -1,0 +1,15 @@
+.git
+.svn
+.gitignore
+.gitkeep
+.buildignore
+.dockerignore
+.editorconfig
+.idea
+.travis.yml
+README.md
+package.json
+package-lock.json
+nbproject
+
+

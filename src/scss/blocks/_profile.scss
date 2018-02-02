@@ -1,0 +1,37 @@
+.profile {
+
+    &__principal {
+        display: flex;
+        flex-wrap: nowrap;
+        background-color: $color-bg;
+        position: relative;
+    }
+
+    &__avatar-wrap {
+        width: 25%;
+        flex-shrink: 0;
+        position: relative;
+        min-height: 240px;
+        overflow: hidden;
+    }
+
+    &__avatar-pic {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    &__bio {
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+
+    &__print-btn-wrap {
+        position: absolute;
+        top: 21px;
+        right: 30px;
+    }
+}

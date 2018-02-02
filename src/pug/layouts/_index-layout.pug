@@ -1,0 +1,24 @@
+- const jv0 = 'javascript:void(0)';
+
+block vars
+
+doctype html
+html.root
+    head
+        meta(charset="utf-8")
+        title= pageTitle || "ROI trial"
+        meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+        meta(content="IE=edge", http-equiv="X-UA-Compatible")
+        meta(name="format-detection" content="telephone=no")
+        include ./_favicon
+        link(rel="stylesheet", type="text/css", href="css/index.css")
+        include ./_svg-for-everybody
+
+    block pageVars
+
+    body
+        div(class= 'page page' + (pageClass ? `--${pageClass}` : ''))
+            block content
+
+        script(src="js/index.js")
+

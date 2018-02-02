@@ -1,0 +1,14 @@
+.root {
+    background-color: white;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: none;
+    font-family: $font--base;
+    font-size: 14px;
+    color: $color-font-lighter;
+    line-height: 1;
+    box-sizing: border-box;
+}

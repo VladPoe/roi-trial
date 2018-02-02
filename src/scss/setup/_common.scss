@@ -1,0 +1,19 @@
+* {
+    box-sizing: inherit;
+}
+
+body {
+    height: 100%;
+
+    & *:focus {
+        outline: none;
+    }
+
+    &.user-is-tabbing *:focus {
+        outline: 2px dashed rgba(0, 0, 0, 0.7);
+    }
+
+    &.ov-hidden {
+        overflow: hidden;
+    }
+}

@@ -1,0 +1,15 @@
+# IDE files
+.idea
+out
+gen
+
+## Node and Bower
+node_modules/
+
+## Build
+build/
+
+# Other
+.DS_Store
+Thumbs.db
+npm-debug.log

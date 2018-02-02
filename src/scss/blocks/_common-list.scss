@@ -1,0 +1,19 @@
+.common-list {
+    text-align: left;
+
+    li {
+        &::before {
+            content: '\2022';
+            position: static;
+            display: inline-block;
+            margin-right: 5px;
+        }
+    }
+
+    li + li {
+        margin-top: 6px;
+    }
+
+    span {
+    }
+}

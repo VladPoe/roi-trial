@@ -1,0 +1,38 @@
+.visual-list {
+    font-size: 0;
+
+    &__item {
+        display: inline-block;
+
+        & + & {
+            margin-left: 8px;
+        }
+    }
+
+    &__base {
+        display: inline-block;
+        font-size: 0.9rem;
+        font-weight: normal;
+        color: $color-font-light;
+        text-transform: uppercase;
+        padding: 7px 8px 5px;
+        border-radius: 3px;
+        background-color: rgba(0, 0, 0, 1);
+
+        &.strong {
+            background-color: rgba(0, 0, 0, 1);
+        }
+
+        &.medium {
+            background-color: rgba(92, 92, 92, 1);
+        }
+
+        &.light {
+            background-color: rgba(162, 162, 162, 1);
+        }
+    }
+
+    &__delete-btn {
+        display: none;
+    }
+}

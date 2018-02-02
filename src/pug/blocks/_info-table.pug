@@ -1,0 +1,110 @@
+-
+    var data = {
+        portfolio: {
+            title: 'Portfolio',
+            description: 'PHP, Ruby, Javascript',
+            info: [
+                ['NavalPlan', 'PHP', 'Ruby'],
+                ['MyTime', 'Javascript'],
+                ['Formidable', 'PHP', 'Ruby'],
+                ['MyTime', 'Javascript'],
+                ['Moonsoon', 'ActionScript']
+            ]
+        },
+        experience: {
+            title: 'Experience',
+            info: [
+                ['PHP', '6 years'],
+                ['Ruby', '7 years'],
+                ['Javascript', '7 years'],
+                ['ActionScript', '3 years']
+            ]
+        },
+        code: {
+            title: 'Sample code and algorithms'
+        },
+        availability: {
+            title: 'Availability',
+            description: 'Full time',
+            semititle: 'Preferred environment',
+            environment: 'Git, GitHum, vim, emacs, Jenkins, Mac OSX'
+        },
+        amazing: {
+            title: 'The mose amazing...',
+            cite: '… Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do&nbsp;eiusmod tempor incididunt ut&nbsp;labore et&nbsp;dolore magna aliqua et&nbsp;dolore magna aliqua et&nbsp;dol ut&nbsp;labore et&nbsp;dolore magna aliqua et&nbsp;dol ut&nbsp;labore et&nbsp;dolore',
+            sign: 'Martin'
+        },
+        lookFor: {
+            title: 'In clients I look for...',
+            cite: '… Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do&nbsp;eiusmod tempor incididunt ut&nbsp;labore et&nbsp;dolore magna aliqua et&nbsp;dolore magna aliqua et&nbsp;dol ut&nbsp;labore et&nbsp;dolore magna aliqua',
+            sign: 'Martin'
+        },
+        note: {
+            title: 'Note',
+            cite: '… Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do&nbsp;eiusmod tempor incididunt ut&nbsp;labore et&nbsp;dolore magna aliqua et&nbsp;dolore magna aliqua et&nbsp;dol ut&nbsp;labore et&nbsp;dolore magna aliqua',
+            sign: 'Martin'
+        }
+    }
+
+-   var buildStr = function (data) {
+-       return data.reduce(function (acc, val, index) {
+-           if (data.length === 1) {
+-               return acc + `<b>${val}</b>`;
+-           }
+-           return index === 0 ? acc + `<b>${val}</b>, `
+-               : index === data.length - 1 ? acc + `<span>${val}</span>`
+-               : acc + `<span>${val}</span>, `;
+-       },'');
+-
+-   }
+
+
+mixin common-description(data)
+    div.info-table__heading
+        span.info-table__title #{data.title}
+        if data.description
+            span.info-table__title-description #{data.description}
+    div.info-table__details
+        ul.info-table__details-list.common-list
+            each line in data.info
+                li.
+                    !{buildStr(line)}
+
+mixin cite-description(data)
+    div.info-table__heading
+        span.info-table__title #{data.title}
+        if data.description
+            span.info-table__title-description #{data.description}
+    div.info-table__details
+        blockquote.cite
+            p !{data.cite}
+            cite - #{data.sign}
+
+
+section.info-table
+    h4.visuallyhidden Candidate experience and expectations' information
+    ul.info-table__list
+        li.info-table__item
+            +common-description(data.portfolio)
+        li.info-table__item
+            +common-description(data.experience)
+        li.info-table__item
+            div.info-table__heading.info-table__heading--overlay
+                span.info-table__title #{data.code.title}
+            div.info-table__code-embedded
+                script(src="https://gist.github.com/VladPoe/a2e4f7552dd7fe2d5c88ab25cd918488.js")
+                a.info-table__code-link(href="https://gist.github.com/VladPoe" target="_blank")
+        li.info-table__item
+            div.info-table__heading
+                span.info-table__title #{data.availability.title}
+                span.info-table__title-description.info-table__title-description--giant #{data.availability.description}
+            div.info-table__details.info-table__details--bordered
+                span.info-table__inner-title #{data.availability.semititle}
+                span.info-table__inner-description #{data.availability.environment}
+        li.info-table__item.info-table__item--cite-decor
+            +cite-description(data.amazing)
+        li.info-table__item.info-table__item--cite-decor
+            +cite-description(data.lookFor)
+        li.info-table__item
+        li.info-table__item.info-table__item--cite-decor
+            +cite-description(data.note)

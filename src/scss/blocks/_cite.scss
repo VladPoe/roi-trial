@@ -1,0 +1,22 @@
+.cite {
+    font-style: 1rem;
+    font-family: $font--base;
+    text-align: left;
+
+    p {
+        font-style: italic;
+        line-height: 1.2;
+    }
+
+    p + p {
+        margin-top: 12px;
+    }
+
+    cite {
+        display: block;
+        font-size: 0.8rem;
+        text-align: right;
+        font-weight: bolder;
+        margin-top: 10px;
+    }
+}

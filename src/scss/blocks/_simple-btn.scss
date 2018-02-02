@@ -1,0 +1,15 @@
+.simple-btn {
+    background-color: black;
+    color: $color-font-light;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 6px 10px 4px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    transition-property: background-color;
+    transition-duration: 180ms;
+
+    :root:not(.mobile) &:hover {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+}

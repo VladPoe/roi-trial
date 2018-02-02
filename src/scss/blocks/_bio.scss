@@ -1,0 +1,66 @@
+.bio {
+    padding: 26px 30px 26px 36px;
+
+    &__name {
+        font-weight: bolder;
+        font-size: 2.3rem;
+        letter-spacing: -1.3px;
+        color: $color-font--dark;
+    }
+
+    &__list {
+
+    }
+
+    * + &__list {
+        margin-top: 14px;
+    }
+
+    &__list-item {
+        font-weight: bolder;
+        font-size: 1rem;
+        line-height: 1;
+
+        & + & {
+            margin-top: 7px;
+        }
+    }
+
+    &__skills {
+        margin-left: -6px;
+    }
+
+    * + &__skills {
+        margin-top: 22px;
+    }
+
+    &__add-skills-btn {
+        background-color: transparent;
+        font-size: 1rem;
+        padding: 0;
+        display: inline-block;
+        position: relative;
+        color: inherit;
+
+        :root:not(.mobile) &:hover {
+            &::before {
+                width: 100%;
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            background-color: currentColor;
+            transition-property: width;
+            transition-duration: 180ms;
+        }
+    }
+
+    * + &__add-skills-btn {
+        margin-top: 12px;
+    }
+}

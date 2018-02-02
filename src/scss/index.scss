@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+// Setup
+@import "setup/variables";
+@import "setup/mixins";
+@import "setup/typography";
+@import "setup/reset";
+@import "setup/common";
+
+// Blocks
+@import "blocks/root";
+@import "blocks/page";
+@import "blocks/visuallyhidden";
+@import "blocks/profile";
+@import "blocks/bio";
+@import "blocks/visual-list";
+@import "blocks/simple-btn";
+@import "blocks/info-table";
+@import "blocks/common-list";
+@import "blocks/cite";

@@ -1,0 +1,94 @@
+// =============================================================================
+// Font Face
+// =============================================================================
+
+// $name - name for font-family
+// $path - path to font without format
+// $display - font-display property
+// $weight - font-weight
+// $style - font-style
+// $exts - used font formats
+@mixin font-face($name, $path, $display: auto, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+    $src: null;
+
+    $extmods: (
+        eot: "?",
+        svg: "#" + str-replace($name, " ", "_")
+    );
+
+    $formats: (
+        otf: "opentype",
+        ttf: "truetype"
+    );
+
+    @each $ext in $exts {
+        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+    }
+
+    @font-face {
+        font-family: quote($name);
+        font-style: $style;
+        font-weight: $weight;
+        src: $src;
+        font-display: $display;
+    }
+}
+
+// =============================================================================
+// Media Query Breakpoints
+// =============================================================================
+@mixin below($width) {
+    @media (max-width: $width - 1px) {
+        @content;
+    }
+}
+
+@mixin above($width) {
+    @media (min-width: $width) {
+        @content;
+    }
+}
+
+@mixin between($minWidth, $maxWidth) {
+    @media (min-width: $minWidth) and (max-width: $maxWidth) {
+        @content;
+    }
+}
+
+@mixin clearfix {
+    &::after {
+        clear: both;
+        content: '';
+        display: table;
+    }
+}
+
+// =============================================================================
+// Placeholder
+// =============================================================================
+@mixin placeholder {
+    $placeholders: ":-webkit-input" ":-moz" "-ms-input";
+
+    @each $placeholder in $placeholders {
+        @if $placeholder == ":-moz" {
+            &:#{$placeholder}-placeholder {
+                opacity: 1;
+                @content;
+            }
+        } @else {
+            &:#{$placeholder}-placeholder {
+                @content;
+            }
+        }
+    }
+}
+
+// =============================================================================
+// Visually Hidden
+// =============================================================================
+
+// Use when there's a need to accessibly hide an element on some breakpoints, not permanently
+// Otherwise use visuallyhidden class in html
+

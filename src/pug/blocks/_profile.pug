@@ -1,0 +1,37 @@
+-
+    var bio = {
+        firstName: 'John',
+        secondName: 'Smith',
+        picSrc: '',
+        commonInfo: ['Portland, Oregon, USA', 'English'],
+        skills: [
+            {name:'PHP', rate: 'strong'},
+            {name:'Ruby', rate: 'strong'},
+            {name:'JavaScript', rate: 'medium'},
+            {name:'ActionScript', rate: 'light'}
+        ]
+    }
+
+article.profile
+    header.profile__principal
+        div.profile__avatar-wrap
+            img.profile__avatar-pic(
+                alt=`${bio.firstName} ${bio.secondName}`
+                src='assets/images/avatar.jpg'
+                width='236' height='auto'
+            )
+        div.profile__bio.bio
+            h1.bio__name #{bio.firstName} #{bio.secondName}
+            ul.bio__list
+                each item in bio.commonInfo
+                    li.bio__list-item #{item}
+            ul.bio__skills.visual-list
+                each item in bio.skills
+                    li.visual-list__item
+                        span.visual-list__base(class=item.rate && `${item.rate}` tabindex="0") #{item.name}
+                            button.visual-list__delete-btn(type="button")
+            button.bio__add-skills-btn(type="button") Add skills
+        div.profile__print-btn-wrap
+            button.simple-btn(type="button") Print this page
+    div.profile__body
+        include ./../blocks/_info-table
