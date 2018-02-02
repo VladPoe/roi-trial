@@ -8,10 +8,6 @@
         color: $color-font--dark;
     }
 
-    &__list {
-
-    }
-
     * + &__list {
         margin-top: 14px;
     }
