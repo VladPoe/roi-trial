@@ -16,6 +16,10 @@
         position: relative;
         min-height: 240px;
         overflow: hidden;
+        background-image: url('../assets/images/photo.svg');
+        background-size: 60px auto;
+        background-repeat: no-repeat;
+        background-position: center;
 
         @include below($lg) {
             min-height: 200px;

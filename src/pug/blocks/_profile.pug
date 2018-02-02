@@ -47,9 +47,9 @@ article.profile
                                         +icon('close-cross')(width="8" height="8")
                 ul.bio__skills.visual-list
                     each item in bio.skills
-                        li.visual-list__item
+                        li.visual-list__item.js-skill-item
                             span.visual-list__base(class=item.rate && `${item.rate}` tabindex="0") #{item.name}
-                                button.visual-list__delete-btn(type="button")
+                                button.visual-list__delete-btn.js-skill-item-delete-btn(type="button")
                                     +icon('close-cross')(width="8" height="8")
             button.bio__add-skills-btn(type="button") Add skills
         div.profile__print-btn-wrap

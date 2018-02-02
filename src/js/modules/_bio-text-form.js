@@ -39,7 +39,7 @@ const bioTextForm = () => {
             infieldValue: field.value
         };
 
-        form.addEventListener('submit', function (event) {
+        form.addEventListener('submit', (event) => {
             event.preventDefault();
             if (field.value.length) {
                 updateStore(store);
@@ -48,7 +48,7 @@ const bioTextForm = () => {
             field.blur();
         });
 
-        field.addEventListener('focus', function () {
+        field.addEventListener('focus', () => {
             addActiveClass(form);
         });
 
@@ -57,14 +57,14 @@ const bioTextForm = () => {
             setToStoreInfieldValue(store, this.value);
         });
 
-        field.addEventListener('blur', function () {
+        field.addEventListener('blur', () => {
             setTimeout(() => {
                 setValue(field, store.value);
                 removeActiveClass(form);
             }, 260);
         });
 
-        document.addEventListener('keyup', function (event) {
+        document.addEventListener('keyup', (event) => {
             if (event.keyCode === ESC_KEYCODE) {
                 field.blur();
             }
