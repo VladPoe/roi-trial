@@ -1,3 +1,5 @@
+include ./_icon
+
 -
     var bio = {
         firstName: 'John',
@@ -21,15 +23,19 @@ article.profile
                 width='236' height='auto'
             )
         div.profile__bio.bio
-            h1.bio__name #{bio.firstName} #{bio.secondName}
-            ul.bio__list
-                each item in bio.commonInfo
-                    li.bio__list-item #{item}
-            ul.bio__skills.visual-list
-                each item in bio.skills
-                    li.visual-list__item
-                        span.visual-list__base(class=item.rate && `${item.rate}` tabindex="0") #{item.name}
-                            button.visual-list__delete-btn(type="button")
+            h1.profile__title.visuallyhidden #{bio.firstName} #{bio.secondName}
+            div.bio__inner
+                form.bio__name-form.js-text-form(method="get" action="")
+                    input.bio__name.js-text-form-field(type="text" value=`${bio.firstName} ${bio.secondName}`)
+                ul.bio__list
+                    each item in bio.commonInfo
+                        li.bio__list-item #{item}
+                ul.bio__skills.visual-list
+                    each item in bio.skills
+                        li.visual-list__item
+                            span.visual-list__base(class=item.rate && `${item.rate}` tabindex="0") #{item.name}
+                                button.visual-list__delete-btn(type="button")
+                                    +icon('close-cross')(width="8" height="8")
             button.bio__add-skills-btn(type="button") Add skills
         div.profile__print-btn-wrap
             button.simple-btn(type="button") Print this page

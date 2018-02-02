@@ -1,11 +1,29 @@
 .bio {
-    padding: 26px 30px 26px 36px;
+    &__inner {
+        width: 420px;
+    }
 
     &__name {
         font-weight: bolder;
         font-size: 2.3rem;
         letter-spacing: -1.3px;
+        padding-left: 4px;
+        padding-right: 4px;
         color: $color-font--dark;
+        background-color: transparent;
+        border: 1px solid rgba(0, 0, 0, 0);
+        transition-property: border-color, background-color;
+        transition-duration: 180ms;
+
+        :root:not(.mobile) &:hover {
+            border-color: rgba(0, 0, 0, 0.4);
+        }
+
+        :root &:focus {
+            outline: none;
+            background-color: white;
+            border-color: rgba(0, 0, 0, 0.4);
+        }
     }
 
     * + &__list {
@@ -23,7 +41,7 @@
     }
 
     &__skills {
-        margin-left: -6px;
+        //margin-left: -6px;
     }
 
     * + &__skills {

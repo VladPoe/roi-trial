@@ -26,11 +26,12 @@
     &__bio {
         flex-grow: 1;
         flex-shrink: 0;
+        padding: 22px 30px 26px 32px;
     }
 
     &__print-btn-wrap {
         position: absolute;
-        top: 21px;
+        top: 22px;
         right: 30px;
     }
 }
