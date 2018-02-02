@@ -11,4 +11,8 @@
     color: $color-font-lighter;
     line-height: 1;
     box-sizing: border-box;
+
+    @include below($md) {
+        font-size: 15px;
+    }
 }

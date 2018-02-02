@@ -5,6 +5,7 @@ $border-style: 1px solid #e6e6e6;
         display: flex;
         flex-wrap: wrap;
         border-top: $border-style;
+        border-right: $border-style;
     }
 
     &__item {
@@ -14,8 +15,13 @@ $border-style: 1px solid #e6e6e6;
         position: relative;
         min-height: 240px;
 
-        &:nth-of-type(4n) {
-            border-right: $border-style;
+        @include below($lg) {
+            width: 50%;
+            min-height: 180px;
+        }
+
+        @include below($md) {
+            width: 100%;
         }
 
         &--cite-decor {
@@ -23,6 +29,10 @@ $border-style: 1px solid #e6e6e6;
             background-repeat: no-repeat;
             background-size: 32px auto, 32px auto;
             background-position: 18px 52px, calc(100% - 18px) 200px;
+
+            @include below($lg) {
+                background-position: 18px 52px, calc(100% - 18px) calc(100% - 20px);
+            }
         }
     }
 
@@ -30,6 +40,11 @@ $border-style: 1px solid #e6e6e6;
         padding: 20px 20px 15px;
         text-align: center;
         min-height: 70px;
+
+        @include below($md) {
+            text-align: left;
+            padding-bottom: 20px;
+        }
 
         &--overlay {
             position: relative;
@@ -65,6 +80,10 @@ $border-style: 1px solid #e6e6e6;
     &__details {
         padding: 0 24px 24px;
         text-align: center;
+
+        @include below($md) {
+            text-align: left;
+        }
 
         &--bordered {
             border-top: $border-style;

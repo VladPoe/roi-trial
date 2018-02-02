@@ -3,9 +3,10 @@
 
     &__item {
         display: inline-block;
+        margin: 4px;
 
         & + & {
-            margin-left: 8px;
+            //margin-left: 8px;
         }
     }
 
@@ -37,8 +38,8 @@
         width: 18px;
         height: 18px;
         position: absolute;
-        top: -6px;
-        right: -6px;
+        top: -8px;
+        right: -8px;
         padding: 0;
         background-color: #fa6e6a;
         border-radius: 50%;
@@ -50,7 +51,8 @@
 
         :root:not(.mobile) .visual-list__base:hover &,
         .visual-list__base:focus &,
-        &:focus{
+        &:focus,
+        :root.mobile & {
             transform: scale(1);
             opacity: 1;
         }

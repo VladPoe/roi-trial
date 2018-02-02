@@ -1,15 +1,22 @@
 .bio {
     &__inner {
-        width: 420px;
+
     }
 
     &__form {
         position: relative;
+        width: 420px;
+        max-width: calc(100% - 140px);
+
+        @include below($md) {
+            max-width: none;
+            width: auto;
+        }
     }
 
     &__text-field {
         padding-left: 4px;
-        padding-right: 74px;
+        padding-right: 4px;
         width: 100%;
         background-color: transparent;
         border: 1px solid rgba(0, 0, 0, 0);
@@ -24,6 +31,7 @@
             outline: none;
             background-color: white;
             border-color: rgba(0, 0, 0, 0.3);
+            padding-right: 74px;
         }
     }
 
@@ -32,6 +40,14 @@
         font-size: 2.3rem;
         letter-spacing: -1.3px;
         color: $color-font--dark;
+
+        @include below($lg) {
+            font-size: 1.6rem;
+        }
+
+        @include below($md) {
+            font-size: 1.5rem;
+        }
     }
 
     * + &__list {
@@ -49,11 +65,11 @@
     }
 
     &__skills {
-        //margin-left: -6px;
+        margin-left: -4px;
     }
 
     * + &__skills {
-        margin-top: 22px;
+        margin-top: 17px;
     }
 
     &__add-skills-btn {
@@ -90,11 +106,10 @@
     &__minor-btn-wrap {
         position: absolute;
         right: 8px;
-        top: 54%;
+        top: 50%;
         width: auto;
         height: auto;
         transform: translateY(-50%) scale(0);
-        transform-origin: 50% 50%;
         opacity: 0;
         transition-property: transform, opacity;
         transition-duration: 180ms;
@@ -114,6 +129,7 @@
         border-radius: 50%;
         transition-property: background-color;
         transition-duration: 180ms;
+        vertical-align: middle;
 
         & + & {
             margin-left: 4px;

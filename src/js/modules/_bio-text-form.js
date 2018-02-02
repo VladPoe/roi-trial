@@ -53,12 +53,15 @@ const bioTextForm = () => {
         });
 
         field.addEventListener('input', function () {
+            this.value = this.value.replace(/\s\s+/g, ' ');
             setToStoreInfieldValue(store, this.value);
         });
 
         field.addEventListener('blur', function () {
-            setValue(field, store.value);
-            removeActiveClass(form);
+            setTimeout(() => {
+                setValue(field, store.value);
+                removeActiveClass(form);
+            }, 260);
         });
 
         document.addEventListener('keyup', function (event) {

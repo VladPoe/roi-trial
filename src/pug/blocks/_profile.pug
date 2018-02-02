@@ -4,7 +4,8 @@ include ./_icon
     var bio = {
         firstName: 'John',
         secondName: 'Smith',
-        picSrc: '',
+        picSrc: 'assets/images/avatar.jpg',
+        smPicSrc: 'assets/images/avatar--sm.jpg',
         commonInfo: ['Portland, Oregon, USA', 'English'],
         skills: [
             {name:'PHP', rate: 'strong'},
@@ -17,20 +18,22 @@ include ./_icon
 article.profile
     header.profile__principal
         div.profile__avatar-wrap
-            img.profile__avatar-pic(
-                alt=`${bio.firstName} ${bio.secondName}`
-                src='assets/images/avatar.jpg'
-                width='236' height='auto'
-            )
+            picture.profile__avatar-picture-elem
+                source(media="(max-width: 600px)" srcset=`${bio.smPicSrc}`)
+                img.profile__avatar-pic(
+                    alt=`${bio.firstName} ${bio.secondName}`
+                    src=`${bio.picSrc}`
+                    width='236' height='auto'
+                )
         div.profile__bio.bio
             h1.profile__title.visuallyhidden #{bio.firstName} #{bio.secondName}
             div.bio__inner
                 form.bio__form.js-text-form(method="get" action="")
                     input.bio__text-field.bio__name.js-text-form-field(type="text" value=`${bio.firstName} ${bio.secondName}`)
                     div.bio__minor-btn-wrap
-                        button.bio__minor-btn(type="submit" tabindex="-1")
+                        button.bio__minor-btn.js-text-form-submit-btn(type="submit" tabindex="-1")
                             +icon("checked")(width="8" height="8")
-                        button.bio__minor-btn.js-text-form-close-brn(type="button" tabindex="-1")
+                        button.bio__minor-btn.js-text-form-close-btn(type="button" tabindex="-1")
                             +icon('close-cross')(width="8" height="8")
                 ul.bio__list
                     each item in bio.commonInfo
@@ -38,9 +41,9 @@ article.profile
                             form.bio__form.js-text-form(method="get" action="")
                                 input.bio__text-field.bio__info.js-text-form-field(type="text" value=`${item}`)
                                 div.bio__minor-btn-wrap
-                                    button.bio__minor-btn.bio__minor-btn--sm(type="submit" tabindex="-1")
+                                    button.bio__minor-btn.bio__minor-btn--sm.js-text-form-submit-btn(type="submit" tabindex="-1")
                                         +icon("checked")(width="8" height="8")
-                                    button.bio__minor-btn.bio__minor-btn--sm.js-text-form-close-brn(type="button" tabindex="-1")
+                                    button.bio__minor-btn.bio__minor-btn--sm.js-text-form-close-btn(type="button" tabindex="-1")
                                         +icon('close-cross')(width="8" height="8")
                 ul.bio__skills.visual-list
                     each item in bio.skills
