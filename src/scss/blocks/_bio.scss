@@ -3,31 +3,39 @@
         width: 420px;
     }
 
-    &__name {
-        font-weight: bolder;
-        font-size: 2.3rem;
-        letter-spacing: -1.3px;
+    &__form {
+        position: relative;
+    }
+
+    &__text-field {
         padding-left: 4px;
-        padding-right: 4px;
-        color: $color-font--dark;
+        padding-right: 74px;
+        width: 100%;
         background-color: transparent;
         border: 1px solid rgba(0, 0, 0, 0);
         transition-property: border-color, background-color;
         transition-duration: 180ms;
 
         :root:not(.mobile) &:hover {
-            border-color: rgba(0, 0, 0, 0.4);
+            border-color: rgba(0, 0, 0, 0.3);
         }
 
         :root &:focus {
             outline: none;
             background-color: white;
-            border-color: rgba(0, 0, 0, 0.4);
+            border-color: rgba(0, 0, 0, 0.3);
         }
     }
 
+    &__name {
+        font-weight: bolder;
+        font-size: 2.3rem;
+        letter-spacing: -1.3px;
+        color: $color-font--dark;
+    }
+
     * + &__list {
-        margin-top: 14px;
+        margin-top: 5px;
     }
 
     &__list-item {
@@ -36,7 +44,7 @@
         line-height: 1;
 
         & + & {
-            margin-top: 7px;
+            margin-top: 2px;
         }
     }
 
@@ -55,6 +63,7 @@
         display: inline-block;
         position: relative;
         color: inherit;
+        margin-left: 4px;
 
         :root:not(.mobile) &:hover {
             &::before {
@@ -76,5 +85,57 @@
 
     * + &__add-skills-btn {
         margin-top: 12px;
+    }
+
+    &__minor-btn-wrap {
+        position: absolute;
+        right: 8px;
+        top: 54%;
+        width: auto;
+        height: auto;
+        transform: translateY(-50%) scale(0);
+        transform-origin: 50% 50%;
+        opacity: 0;
+        transition-property: transform, opacity;
+        transition-duration: 180ms;
+
+        .bio__form.active & {
+            transform: translateY(-50%) scale(1);
+            opacity: 1;
+        }
+    }
+
+    &__minor-btn {
+        position: relative;
+        width: 22px;
+        height: 22px;
+        padding: 0;
+        background-color: #e7e7e7;
+        border-radius: 50%;
+        transition-property: background-color;
+        transition-duration: 180ms;
+
+        & + & {
+            margin-left: 4px;
+        }
+
+        :root:not(.mobile) &:hover {
+            background-color: #a2a2a2;
+        }
+
+        &--sm {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    &__minor-btn .svg-icon {
+        fill: white;
+        width: 50%;
+        height: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }

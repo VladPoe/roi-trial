@@ -9,6 +9,7 @@ const bioTextForm = () => {
     }
 
     const ESC_KEYCODE = 27;
+    const activeClass = 'active';
 
     const setValue = (elem, value) => {
         elem.value = value;
@@ -21,6 +22,14 @@ const bioTextForm = () => {
 
     const updateStore = (store) => {
         store.value = store.infieldValue;
+    };
+
+    const addActiveClass = (elem) => {
+        elem.classList.add(activeClass);
+    };
+
+    const removeActiveClass = (elem) => {
+        elem.classList.remove(activeClass);
     };
 
     Array.from(bioFormCollection).forEach((form) => {
@@ -39,12 +48,17 @@ const bioTextForm = () => {
             field.blur();
         });
 
+        field.addEventListener('focus', function () {
+            addActiveClass(form);
+        });
+
         field.addEventListener('input', function () {
             setToStoreInfieldValue(store, this.value);
         });
 
         field.addEventListener('blur', function () {
             setValue(field, store.value);
+            removeActiveClass(form);
         });
 
         document.addEventListener('keyup', function (event) {
