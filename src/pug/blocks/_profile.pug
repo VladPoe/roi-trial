@@ -2,16 +2,16 @@ include ./_icon
 
 -
     var bio = {
-        firstName: 'John',
-        secondName: 'Smith',
-        picSrc: 'assets/images/avatar.jpg',
-        smPicSrc: 'assets/images/avatar--sm.jpg',
-        commonInfo: ['Portland, Oregon, USA', 'English'],
+        firstName: 'Vlad',
+        secondName: 'Pocheptsov',
+        picSrc: 'assets/images/v-p.jpg',
+        smPicSrc: 'assets/images/v-p--alt.jpg',
+        commonInfo: ['Izhevsk, Russia', 'Russian, English, French'],
         skills: [
-            {name:'PHP', rate: 'strong'},
-            {name:'Ruby', rate: 'strong'},
             {name:'JavaScript', rate: 'medium'},
-            {name:'ActionScript', rate: 'light'}
+            {name:'React.js', rate: 'light'},
+            {name:'HTML', rate: 'Strong'},
+            {name:'CSS', rate: 'Strong'}
         ]
     }
 
@@ -19,6 +19,7 @@ article.profile
     header.profile__principal
         div.profile__avatar-wrap
             picture.profile__avatar-picture-elem
+                source(media="(max-width: 400px)" srcset=`${bio.picSrc}`)
                 source(media="(max-width: 600px)" srcset=`${bio.smPicSrc}`)
                 img.profile__avatar-pic(
                     alt=`${bio.firstName} ${bio.secondName}`

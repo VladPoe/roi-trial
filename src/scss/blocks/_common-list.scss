@@ -2,15 +2,20 @@
     text-align: left;
 
     li {
+        position: relative;
+        padding-left: 11px;
+        line-height: 1.2;
+
         &::before {
             content: '\2022';
-            position: static;
+            position: absolute;
             display: inline-block;
-            margin-right: 5px;
+            top: 0;
+            left: 0;
         }
     }
 
     li + li {
-        margin-top: 6px;
+        margin-top: 3px;
     }
 }

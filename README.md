@@ -14,6 +14,9 @@ You can build static markup (the `build` folder) by runnin the following command
 _The output will be written on a disk._
 
 #### Run Dev Server
+Build svg-sprite by command: `npm run svg-sprite`.
+
+
 You can run dev server (files watcher) by running with the following command:
 `npm run server`
 

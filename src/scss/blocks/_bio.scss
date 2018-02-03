@@ -176,11 +176,13 @@
         &.active {
             z-index: 1;
             width: 256px;
+            overflow: visible;
         }
     }
 
     &__add-skills-field {
         line-height: 24px;
+        height: 28px;
         font-size: 0.9rem;
 
         :root .bio__skills-form.active & {
