@@ -64,6 +64,10 @@ const bioTextForm = () => {
             }, 260);
         });
 
+        form.addEventListener('click', (event) => {
+            event.stopPropagation();
+        });
+
         document.addEventListener('keyup', (event) => {
             if (event.keyCode === ESC_KEYCODE) {
                 field.blur();

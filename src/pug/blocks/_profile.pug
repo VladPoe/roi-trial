@@ -29,7 +29,7 @@ article.profile
             h1.profile__title.visuallyhidden #{bio.firstName} #{bio.secondName}
             div.bio__inner
                 form.bio__form.js-text-form(method="get" action="")
-                    input.bio__text-field.bio__name.js-text-form-field(type="text" value=`${bio.firstName} ${bio.secondName}`)
+                    input.bio__text-field.bio__name.js-text-form-field(type="text" value=`${bio.firstName} ${bio.secondName}` name="name")
                     div.bio__minor-btn-wrap
                         button.bio__minor-btn.js-text-form-submit-btn(type="submit" tabindex="-1")
                             +icon("checked")(width="8" height="8")
@@ -45,14 +45,25 @@ article.profile
                                         +icon("checked")(width="8" height="8")
                                     button.bio__minor-btn.bio__minor-btn--sm.js-text-form-close-btn(type="button" tabindex="-1")
                                         +icon('close-cross')(width="8" height="8")
-                ul.bio__skills.visual-list
+                ul.bio__skills.visual-list.js-skills-list(data-id="bio-skills")
                     each item in bio.skills
                         li.visual-list__item.js-skill-item
                             span.visual-list__base(class=item.rate && `${item.rate}` tabindex="0") #{item.name}
                                 button.visual-list__delete-btn.js-skill-item-delete-btn(type="button")
-                                    +icon('close-cross')(width="8" height="8")
-            button.bio__add-skills-btn(type="button") Add skills
+                                    //+icon('close-cross')(width="8" height="8")
+            div.bio__add-skills
+                form.bio__form.bio__skills-form.js-skills-form(method="get" action="" id="bio-skills")
+                    input.bio__text-field.bio__add-skills-field.js-skills-field(type="text" placeholder="Add skills")
+                    div.bio__minor-btn-wrap
+                        div.bio__skills-select-wrap
+                            select.bio__select.js-skills-select(name="skill-mastery" size="1" )
+                                option.bio__option(value="average") Average
+                                option.bio__option(value="good") Good
+                                option.bio__option(value="strong") Strong
+                        button.bio__minor-btn.bio__minor-btn--sm.js-text-form-submit-btn(type="submit" tabindex="-1")
+                            +icon("checked")(width="8" height="8")
+                button.bio__add-skills-btn.js-skills-form-init-btn(type="button" data-id="bio-skills") Add skills
         div.profile__print-btn-wrap
-            button.simple-btn(type="button") Print this page
+            button.simple-btn.js-print-btn(type="button") Print this page
     div.profile__body
         include ./../blocks/_info-table

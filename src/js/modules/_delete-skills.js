@@ -5,7 +5,6 @@ const deleteSkills = () => {
     const hiddenClass = 'hidden';
 
     $('body').on('click', deleteBtnSelector, function () {
-        console.log('xx');
         const $this = $(this);
         const $item = $this.closest(skillItemSelector);
         $item.addClass(hiddenClass);

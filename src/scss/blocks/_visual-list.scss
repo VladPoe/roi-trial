@@ -53,6 +53,10 @@
         padding: 0;
         background-color: #fa6e6a;
         border-radius: 50%;
+        background-image: url('../assets/images/close-cross.svg');
+        background-size: 8px 8px;
+        background-repeat: no-repeat;
+        background-position: center;
         transform: scale(0);
         transform-origin: 50% 50%;
         opacity: 0;

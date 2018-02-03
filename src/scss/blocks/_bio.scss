@@ -1,8 +1,4 @@
 .bio {
-    &__inner {
-
-    }
-
     &__form {
         position: relative;
         width: 420px;
@@ -72,37 +68,6 @@
         margin-top: 17px;
     }
 
-    &__add-skills-btn {
-        background-color: transparent;
-        font-size: 1rem;
-        padding: 0;
-        display: inline-block;
-        position: relative;
-        color: inherit;
-        margin-left: 4px;
-
-        :root:not(.mobile) &:hover {
-            &::before {
-                width: 100%;
-            }
-        }
-
-        &::before {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -4px;
-            background-color: currentColor;
-            transition-property: width;
-            transition-duration: 180ms;
-        }
-    }
-
-    * + &__add-skills-btn {
-        margin-top: 12px;
-    }
-
     &__minor-btn-wrap {
         position: absolute;
         right: 8px;
@@ -131,7 +96,7 @@
         transition-duration: 180ms;
         vertical-align: middle;
 
-        & + & {
+        * + & {
             margin-left: 4px;
         }
 
@@ -153,5 +118,80 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+
+    &__add-skills {
+        position: relative;
+    }
+
+    * + &__add-skills {
+        margin-top: 7px;
+    }
+
+    &__add-skills-btn {
+        background-color: transparent;
+        font-size: 1rem;
+        padding: 0;
+        display: inline-block;
+        color: inherit;
+        margin-left: 4px;
+        position: absolute;
+        left: 0;
+        top: 5px;
+        opacity: 1;
+        transform: scale(1);
+        transition-property: opacity, transform;
+        transition-duration: 180ms;
+        transition-delay: 100ms;
+
+        :root:not(.mobile) &:hover {
+            &::before {
+                width: 100%;
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            background-color: currentColor;
+            transition-property: width;
+            transition-duration: 180ms;
+        }
+
+        &.hidden {
+            opacity: 0;
+            transform: scale(0);
+        }
+    }
+
+    &__skills-form {
+        width: 0;
+        overflow: hidden;
+        transition-property: width;
+        transition-duration: 180ms;
+
+        &.active {
+            z-index: 1;
+            width: 256px;
+        }
+    }
+
+    &__add-skills-field {
+        line-height: 24px;
+        font-size: 0.9rem;
+
+        :root .bio__skills-form.active & {
+            border-color: #0f0 !important;
+            padding-right: 104px;
+            outline: none;
+            background-color: white;
+        }
+    }
+
+    &__skills-select-wrap {
+        display: inline-block;
     }
 }
