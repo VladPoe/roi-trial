@@ -11,10 +11,7 @@
         "svg-sprite": "./node_modules/.bin/svgstore -o src/assets/icons/icons.svg src/assets/icons/svg-sprite/*.svg",
         "prepush": "npm run lint:js && npm run lint:css",
         "server": "./node_modules/.bin/webpack-dev-server",
-        "dev": "./node_modules/.bin/webpack",
-        "build-to-git": "./scripts/build-to-git.js",
-        "release-to-git": "./scripts/release-to-git.js",
-        "postrelease-to-git": "npm run build-to-git"
+        "dev": "./node_modules/.bin/webpack"
     },
     "author": "Vlad Pocheptsov <vlad.pocheptsov@gmail.com>",
     "license": "MIT",
