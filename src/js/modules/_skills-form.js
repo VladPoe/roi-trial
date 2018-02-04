@@ -18,7 +18,7 @@ const skillsForm = () => {
 
     const filterElementsById = (collection, id) => { // eslint-disable-line consistent-return
         for (let i = 0; i <= collection.length - 1; i++) {
-            if (collection[i].dataset.id = id) { // eslint-disable-line no-cond-assign
+            if (collection[i].dataset.id === id) { // eslint-disable-line no-cond-assign
                 return collection[i];
             }
             i++;
